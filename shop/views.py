@@ -169,10 +169,13 @@ class login_api(APIView) :
     #========================================================================
          if user is not None:
           login(request, user) 
-        
+          refresh = RefreshToken.for_user(user)
+          access_token = str(refresh.access_token)
           role = "admin" if user.is_staff else "user"
           return Response({
             "message": "Login successful",
+            "access": access_token,   
+            "refresh": str(refresh),
             "email": user.email,
             "user_id": user.id,
             "is_staff": user.is_staff,
