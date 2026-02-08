@@ -15,7 +15,7 @@ class Product(models.Model) :
     ]
     category = models.CharField(max_length=200 ,choices=productcategory)
     stock = models.PositiveIntegerField(default=0)
-    image = models.ImageField(upload_to='products/', blank=True, null=True)
+    image = models.URLField(max_length=900)
     def reduce_stock(self, qty):
         if qty <= 0:
             raise ValueError('Quantity must be greater than 0')
@@ -72,7 +72,7 @@ class OrderItem(models.Model) :
 #===================================================Update Decount APP========================  
 class Decount(models.Model)  :
     text = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='decount')
+    image = models.URLField(max_length=900)
     def __str__(self):
         return self.text
     
