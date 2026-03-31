@@ -107,7 +107,11 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "https://your-frontend.onrender.com",
-    "https://vite-react-ucb2.vercel.app/",
+    "https://vite-react-ucb2.vercel.app",
+    "https://backend-pos-api.onrender.com",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "https://vite-react-ucb2.vercel.app",
     "https://backend-pos-api.onrender.com",
 ]
 
